@@ -13,11 +13,6 @@ spring:
     activate:
       on-profile: common
 
-kakao:
-  rest:
-    api:
-      key: ${KAKAO_REST_API_KEY}
-
 # ...
 
 ---
@@ -34,13 +29,6 @@ spring:
     host: localhost
     port: 6379
   jpa:
-     hibernate:
+    hibernate:
       ddl-auto: create
     show-sql: true
-
----
-
-spring:
-  config:
-    activate:
-      on-profile: prod
