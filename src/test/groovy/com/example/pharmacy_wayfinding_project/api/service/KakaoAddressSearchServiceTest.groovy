@@ -31,4 +31,26 @@ class KakaoAddressSearchServiceTest extends AbstractIntegrationContainerBaseTest
         result.metaDto.totalCount > 0
         result.documentList.get(0).addressName != null
     }
+
+    def "정상적인 주소를 입력했을 경우, 정상적으로 위도 경도로 변환된다."() {
+
+        given:
+        boolean actualResult = false
+
+        when:
+        def searchResult = kakaoAddressSearchService.requestAddressSearch(inputAddress)
+
+        then:
+        if(searchResult == null) actualResult = false
+        else actualResult = searchResult.getDocumentList().size() > 0
+
+        where:
+        inputAddress                                        | expectedResult
+        "제주특별자치도 서귀포시 중동로"                         | true
+        "제주특별자치도 서귀포시 중앙로 19-1"                    | true
+        "제주특별자치도 중앙로"                                 | false
+        "제주특별자치도 서귀포시"                               | false
+        "제주특별자치도 서귀포시 중앙로 19-112121"               | false
+        ""                                                  | false
+    }
 }
