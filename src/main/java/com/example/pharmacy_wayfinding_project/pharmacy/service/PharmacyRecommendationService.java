@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.Collections;
 import java.util.List;
@@ -23,6 +24,12 @@ public class PharmacyRecommendationService {
 
     private final KakaoAddressSearchService kakaoAddressSearchService;
     private final DirectionService directionService;
+
+    private static final String ROAD_VIEW_BASE_URL="https://map.kakao.com/link/roadview/";
+    private static final String GET_DIRECTIONS_BASE_URL="https://map.kakao.com/link/to/";
+
+
+
 
     public List<OutputDto> recommendPharmacyList(String address) { //문자열 기반 주소로 고객이 요청
         //위치기반 데이터로 변환
@@ -44,11 +51,20 @@ public class PharmacyRecommendationService {
     }
 
     private OutputDto convertToOutputDto(Direction direction) {
+
+        String params = String.join(",", direction.getTargetPharmacyName(),
+                String.valueOf(direction.getTargetLatitude()), String.valueOf(direction.getTargetLongitude()));
+
+        String result = UriComponentsBuilder.fromHttpUrl(GET_DIRECTIONS_BASE_URL + params)
+                .toUriString();
+
+        log.info("direction params : {}, url: {}", params, result);
+
         return OutputDto.builder()
                 .pharmacyName(direction.getTargetPharmacyName())
                 .pharmacyAddress(direction.getInputAddress())
-                .directionUrl("todo")   // todo
-                .roadViewUrl("todo")
+                .directionUrl(result)
+                .roadViewUrl(ROAD_VIEW_BASE_URL + direction.getTargetLatitude() + "," + direction.getTargetLongitude())
                 .distance(String.format("%.2f km", direction.getDistance()))
                 .build();
     }
