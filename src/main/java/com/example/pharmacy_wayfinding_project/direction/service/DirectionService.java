@@ -35,7 +35,7 @@ public class DirectionService {
         return directionRepository.saveAll(directionList);
     }
 
-    public String findDirectionById(String encodedId) {
+    public String findDirectionUrlById(String encodedId) {
         Long decodedId = base62Service.decodeDirection(encodedId);
         Direction direction = directionRepository.findById(decodedId).orElse(null);
 
