@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Landing Page - Start Bootstrap Theme</title>
+    <title>상비약 판매 편의점 찾기</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap icons-->
@@ -29,7 +29,7 @@
         <div class="row justify-content-center">
             <div class="col-xl-6">
                 <div class="text-center text-white">
-                    <h2 class="mb-4">검색결과 총 </h2>
+                    <h1 class="mb-5">상비약 취급 편의점 목록</h1>
                         <table class="table table-hover" style="background-color: #ffffff;">
                             <tr>
                                 <th>편의점명</th>
@@ -43,8 +43,8 @@
                                     <td>{{pharmacyName}}</td>
                                     <td>{{pharmacyAddress}}</td>
                                     <td>{{distance}}</td>
-                                    <td><a href="{{directionUrl}}"><img src="/assets/img/icons8-link-64.png" style="width: 30px;"></a></td>
-                                    <td><a href="{{roadViewUrl}}"><img src="/assets/img/icons8-link-64.png" style="width: 30px;"></a></td>
+                                    <td><a href="{{directionUrl}}" target="_blank"><img src="/assets/img/icons8-link-64.png" style="width: 30px;"></a></td>
+                                    <td><a href="{{roadViewUrl}}" target="_blank"><img src="/assets/img/icons8-link-64.png" style="width: 30px;"></a></td>
                                 </tr>
                             {{/each}}
                         </table>
