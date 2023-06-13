@@ -18,7 +18,6 @@ kakao:
     api:
       key: ${KAKAO_REST_API_KEY}
 
-# ...
 
 ---
 spring:
@@ -43,14 +42,12 @@ pharmacy:
     base:
       url: http://localhost:8080/dir/
 
-
 ---
 
 spring:
   config:
     activate:
       on-profile: prod
-
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://pharmacy-recommendation-database:3306/pharmacy-recommendation
@@ -67,4 +64,4 @@ spring:
 pharmacy:
   recommendation:
     base:
-      url: http://3.34.100.44/dir/
+      url: http://15.164.126.160/dir/
