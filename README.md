@@ -50,5 +50,6 @@
 
 ### 결과화면
 
-![image](https://github.com/bokyoung89/fastcampus-project-board/assets/58727604/0630e75c-b2f8-4ef0-ace2-6e7698971aa6)
+<img src="https://github.com/bokyoung89/Pharmacy-Recommendation-Version-Management/assets/58727604/38679fa6-671a-43bf-ac12-cfa937a085e4" width="80%" height="80%">
+
 ![제목 없는 동영상 - Clipchamp로 제작](https://github.com/bokyoung89/fastcampus-project-board/assets/58727604/346e4f8f-dc67-4043-b432-924b602a324a)
