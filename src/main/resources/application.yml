@@ -64,4 +64,4 @@ spring:
 pharmacy:
   recommendation:
     base:
-      url: http://15.164.126.160/dir/
+      url: http://15.164.113.180/dir/
